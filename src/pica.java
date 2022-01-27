@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -38,7 +39,6 @@ topingi = topingi.toUpperCase();
 if (topingi.equals("SIERS")) {
 	cenaTop=cenaTop+2.25;
 	sastavdalas.add("Siers");
-	System.out.println("siers");
 }
 if (topingi.equals("VEGANU SIERS") || topingi.equals("VEGANUSIERS")) {
 	cenaTop=cenaTop+4.89;
@@ -131,20 +131,35 @@ cena=cenaIzmers+cenaVeidu+cenaTop;
 	public static void main(String[] args) {
 				String izvele;
 				do {
-				izvele = JOptionPane.showInputDialog("picas-izveidot picu | apskatit-apskatit sastavdalas un cenu | stop");
+				izvele = JOptionPane.showInputDialog("pica-izveidot picu | apskatit-apskatit sastavdalas un cenu | saglabat-saglaba sastavdalas faila | stop");
 				izvele = izvele.toLowerCase();
 				switch(izvele) {
-				case"picas":
+				case"pica":
 					picasveide();
 					break;
 				case"apskatit":
 					for(int i=0; i<sastavdalas.size(); i++) {
-						System.out.print(sastavdalas.get(i)+" ");
+						JOptionPane.showMessageDialog(null,sastavdalas.get(i));
 					}
-					System.out.println("Sis ir jusu sastavdalas un tas izmaksas "+cena+" EUR");
+					JOptionPane.showMessageDialog(null,"Sis ir jusu sastavdalas un tas izmaksas "+cena+" EUR "+cenaIzmers+"-par izmeru "+cenaVeidu+"-par veidu "+cenaTop+"-par topingiem");
 					break;
 				case"stop":
 					JOptionPane.showMessageDialog(null, "Programma aptureta");
+					break;
+				case"saglabat":
+					try {
+					String nosaukums= JOptionPane.showInputDialog("Ievadi faila nosaukumu");
+					FileWriter fw = new FileWriter(nosaukums+".txt", true);
+					fw.write("\n");;
+					fw.write("Jusu sastavdalas :) ");
+					for(int i=0; i<sastavdalas.size(); i++) {
+					fw.write(sastavdalas.get(i)+", ");
+					}
+					fw.close();
+					}catch(Exception e) {
+						JOptionPane.showMessageDialog(null, "Kluda rakstot", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+					JOptionPane.showMessageDialog(null, "Fails saglabats", "Info", JOptionPane.INFORMATION_MESSAGE);
 					break;
 				default: JOptionPane.showMessageDialog(null,"Komanda nepastav", "Error", JOptionPane.ERROR_MESSAGE);
 				}
