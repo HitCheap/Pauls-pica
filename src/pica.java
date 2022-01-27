@@ -130,9 +130,9 @@ cena=cenaIzmers+cenaVeidu+cenaTop;
 	}
 	public static void main(String[] args) {
 				String izvele;
+				do {
 				izvele = JOptionPane.showInputDialog("picas-izveidot picu | apskatit-apskatit sastavdalas un cenu | stop");
 				izvele = izvele.toLowerCase();
-				do {
 				switch(izvele) {
 				case"picas":
 					picasveide();
