@@ -9,15 +9,15 @@ public static void picasveide() {
 }
 	public static void main(String[] args) {
 				String izvele;
-				izvele = JOptionPane.showInputDialog("pica-izveidot picu | ");
-				izvele = izvele.toLowerCase();
 				do {
+				izvele = JOptionPane.showInputDialog("picas-izveidot picu | stop ");
+				izvele = izvele.toLowerCase();
 				switch(izvele) {
-				case"pica":
+				case"picas":
 					picasveide();
 					break;
 				case"stop":
-				
+					JOptionPane.showMessageDialog(null, "Programma aptureta","Info",JOptionPane.INFORMATION_MESSAGE);
 				break;
 				default: JOptionPane.showMessageDialog(null,"Komanda nepastav", "Error", JOptionPane.ERROR_MESSAGE);
 				}
@@ -29,4 +29,3 @@ public static void picasveide() {
 
 
 
-	}
