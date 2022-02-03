@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class pica {
 	static ArrayList<String> sastavdalas = new ArrayList<String>();
-	static double cena, cenaIzmers, cenaVeidu,cenaTop;
+	static double cena, cenaIzmers, cenaVeidu,cenaTop, cenaDzer;
 public static void picasveide() {
 	sastavdalas.clear();
 	String picasVeids;
@@ -14,6 +14,7 @@ cena=0;
 cenaIzmers=0;
 cenaVeidu=0; 
 cenaTop=0;
+cenaDzer=0;
 	do {
 	izmers = Integer.parseInt(JOptionPane.showInputDialog("Kadu izmeru picu jus gribat?"));
 }while(izmers<20 || izmers>50);
@@ -125,7 +126,19 @@ if (topingi.equals("BBQ MERCE") || topingi.equals("BBQMERCE")) {
 	sastavdalas.add("BBQ Merce");
 }
 }while(!topingi.equals("TALAK"));
-cena=cenaIzmers+cenaVeidu+cenaTop;
+	String dzeriens;
+	do {
+	dzeriens = JOptionPane.showInputDialog("Kolu,Sprite vai Limonadi?");
+	dzeriens = dzeriens.toLowerCase();
+	}while(!dzeriens.equals("kolu") && !dzeriens.equals("sprite") && !dzeriens.equals("limonadi") && !dzeriens.equals("Kolu") && !dzeriens.equals("Sprite") && !dzeriens.equals("Limonadi"));
+	if(dzeriens.equals("kolu")) {
+		cenaDzer=1.50;
+	} if(dzeriens.equals("sprite")) {
+		cenaDzer=1.75;
+	}if(dzeriens.equals("limonadi")) {
+		cenaDzer=1.00;
+	}
+cena=cenaIzmers+cenaVeidu+cenaTop+cenaDzer;
 
 	}
 	public static void main(String[] args) {
@@ -141,7 +154,7 @@ cena=cenaIzmers+cenaVeidu+cenaTop;
 					for(int i=0; i<sastavdalas.size(); i++) {
 						JOptionPane.showMessageDialog(null,sastavdalas.get(i));
 					}
-					JOptionPane.showMessageDialog(null,"Sis ir jusu sastavdalas un tas izmaksas "+cena+" EUR "+cenaIzmers+"-par izmeru "+cenaVeidu+"-par veidu "+cenaTop+"-par topingiem");
+					JOptionPane.showMessageDialog(null,"Sis ir jusu sastavdalas un tas izmaksas "+cena+" EUR "+cenaIzmers+"-par izmeru "+cenaVeidu+"-par veidu "+cenaTop+"-par topingiem "+cenaDzer+"-par dzerienu");
 					break;
 				case"stop":
 					JOptionPane.showMessageDialog(null, "Programma aptureta","Info",JOptionPane.INFORMATION_MESSAGE);
