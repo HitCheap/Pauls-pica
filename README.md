@@ -5,6 +5,7 @@
 ![Pica](https://www.picudarbnica.lv/wp-content/uploads/2012/02/IMG_9426-1000x667.jpg)
 ## Kas kodam ir
 - [x] Iespēja izveidot picu �
+
 ![veide](https://user-images.githubusercontent.com/98739400/152414966-625554b5-aea4-4106-ba33-71880b09a089.jpg)
 
 - [x] Iespēja izvēlēties picas pamatu 😎
